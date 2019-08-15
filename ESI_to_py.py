@@ -92,7 +92,7 @@ def _create_doc_string(ESI_parameters, function_dict):
 def _filter_parameter(parameter, as_key_word=False):
     if 'datasource' == parameter:  # data source will be specified in module
         return ''
-    elif 'If-None-Match' == parameter:  # Ajust name
+    elif 'If-None-Match' == parameter:  # Adjust name
         parameter = 'if_none_match'
     elif 'Accept-Language' == parameter:
         parameter = 'accept_language'
@@ -139,7 +139,7 @@ def _request_json(version):
     return loads(get(url, headers=headers).text)
 
 
-def run(path): # pragma: no cover
+def run(path):  # pragma: no cover
     data_sources = ['tranquility', 'singularity']
     versions = ['_dev', '_latest', '_legacy', 'dev', 'latest', 'legacy',
                 'v1', 'v2', 'v3', 'v4', 'v5', 'v6']
@@ -147,7 +147,7 @@ def run(path): # pragma: no cover
         ESI = _request_json(version)
         _convert_parameters(ESI['parameters'])
         content = _create_functions(ESI_parameters=ESI['parameters'],
-                                  ESI_paths=ESI['paths'],
-                                  data_source=data_source,
-                                  version=version)
+                                    ESI_paths=ESI['paths'],
+                                    data_source=data_source,
+                                    version=version)
         _write_to_file(content, join(path, f'ESI_{data_source}_{version}.py'))
