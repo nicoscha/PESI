@@ -1,7 +1,7 @@
 import ESI_request
 
 
-def get_characters_character_id(character_id, if_none_match=None):
+def get_characters_character_id(*, character_id, if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -19,7 +19,7 @@ def get_characters_character_id(character_id, if_none_match=None):
                         path=f'/characters/{character_id}/')
 
 
-def post_characters_character_id_cspa(token, characters, character_id):
+def post_characters_character_id_cspa(*, character_id, characters, token):
     """
     :param character_id: An EVE character ID
     :param characters: The target characters to calculate the charge for
@@ -38,8 +38,9 @@ def post_characters_character_id_cspa(token, characters, character_id):
                         path=f'/characters/{character_id}/cspa/')
 
 
-def get_characters_character_id_notifications(token,
+def get_characters_character_id_notifications(*,
                                               character_id,
+                                              token,
                                               if_none_match=None):
     """
     :param character_id: An EVE character ID
@@ -63,7 +64,9 @@ def get_characters_character_id_notifications(token,
                         path=f'/characters/{character_id}/notifications/')
 
 
-def get_characters_character_id_skills(token, character_id,
+def get_characters_character_id_skills(*,
+                                       character_id,
+                                       token,
                                        if_none_match=None):
     """
     :param character_id: An EVE character ID
@@ -84,7 +87,7 @@ def get_characters_character_id_skills(token, character_id,
                         path=f'/characters/{character_id}/skills/')
 
 
-def get_corporations_corporation_id(corporation_id, if_none_match=None):
+def get_corporations_corporation_id(*, corporation_id, if_none_match=None):
     """
     :param corporation_id: An EVE corporation ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -103,7 +106,7 @@ def get_corporations_corporation_id(corporation_id, if_none_match=None):
 
 
 def get_corporations_corporation_id_wallets_division_journal(
-        token, page, division, corporation_id, if_none_match=None):
+        *, corporation_id, division, token, if_none_match=None, page='1'):
     """
     :param corporation_id: An EVE corporation ID
     :param division: Wallet key of the division to fetch journals from
@@ -131,9 +134,10 @@ def get_corporations_corporation_id_wallets_division_journal(
         path=f'/corporations/{corporation_id}/wallets/{division}/journal/')
 
 
-def get_universe_systems_system_id(system_id,
+def get_universe_systems_system_id(*,
                                    language,
-                                   accept_language='en-US',
+                                   system_id,
+                                   accept_language='en-us',
                                    if_none_match=None):
     """
     :param accept_language: ['de', 'en-us', 'fr', 'ja', 'ru', 'zh'] Language to use in the response
