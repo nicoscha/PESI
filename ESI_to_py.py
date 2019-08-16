@@ -100,7 +100,9 @@ def _filter_parameter(parameter, as_key_word=False):  # TODO refactor to list to
         if 'if_none_match' == parameter:
             parameter = 'if_none_match=None'
         elif 'accept_language' == parameter:
-            parameter = "accept_language='en-US'"
+            parameter = "accept_language='en-us'"
+        elif 'page' == parameter:
+            parameter = "page='1'"
         return ', ' + parameter
 
 

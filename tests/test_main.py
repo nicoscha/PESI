@@ -71,7 +71,8 @@ class Test_ESIReader(unittest.TestCase):
     def test_filter_parameter_filtered_not_keyword(self):
         parameters = {'datasource': '',
                       'If-None-Match': ', if_none_match=None',
-                      'Accept-Language': ", accept_language='en-US'"}
+                      'Accept-Language': ", accept_language='en-us'",
+                      'page': ", page='1'"}
         for parameter, expected in parameters.items():
             returned = ESI_to_py._filter_parameter(parameter)
             self.assertEqual(expected, returned)
@@ -79,7 +80,8 @@ class Test_ESIReader(unittest.TestCase):
     def test_filter_parameter_filtered_as_keyword(self):
         parameters = {'datasource': '',
                       'If-None-Match': ', if_none_match=if_none_match',
-                      'Accept-Language': ', accept_language=accept_language'}
+                      'Accept-Language': ', accept_language=accept_language',
+                      'page': ', page=page'}
         for parameter, expected in parameters.items():
             returned = ESI_to_py._filter_parameter(parameter, as_key_word=True)
             self.assertEqual(expected, returned)
