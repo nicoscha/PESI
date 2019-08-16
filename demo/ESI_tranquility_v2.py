@@ -1,7 +1,7 @@
 import ESI_request
 
 
-def get_alliances_alliance_id(alliance_id, if_none_match):
+def get_alliances_alliance_id(alliance_id, if_none_match=None):
     """
     :param alliance_id: An EVE alliance ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -22,8 +22,10 @@ def get_alliances_alliance_id(alliance_id, if_none_match):
                         path=f'/alliances/{alliance_id}/')
 
 
-def get_alliances_alliance_id_contacts(alliance_id, if_none_match, page,
-                                       token):
+def get_alliances_alliance_id_contacts(token,
+                                       page,
+                                       alliance_id,
+                                       if_none_match=None):
     """
     :param alliance_id: An EVE alliance ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -45,8 +47,10 @@ def get_alliances_alliance_id_contacts(alliance_id, if_none_match, page,
                         path=f'/alliances/{alliance_id}/contacts/')
 
 
-def get_characters_character_id_assets(character_id, if_none_match, page,
-                                       token):
+def get_characters_character_id_assets(token,
+                                       page,
+                                       character_id,
+                                       if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -71,8 +75,8 @@ def get_characters_character_id_assets(character_id, if_none_match, page,
                         path=f'/characters/{character_id}/assets/')
 
 
-def post_characters_character_id_assets_locations(character_id, item_ids,
-                                                  token):
+def post_characters_character_id_assets_locations(token, item_ids,
+                                                  character_id):
     """
     :param character_id: An EVE character ID
     :param item_ids: A list of item ids
@@ -91,8 +95,10 @@ def post_characters_character_id_assets_locations(character_id, item_ids,
                         path=f'/characters/{character_id}/assets/locations/')
 
 
-def get_characters_character_id_blueprints(character_id, if_none_match, page,
-                                           token):
+def get_characters_character_id_blueprints(token,
+                                           page,
+                                           character_id,
+                                           if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -114,8 +120,10 @@ def get_characters_character_id_blueprints(character_id, if_none_match, page,
                         path=f'/characters/{character_id}/blueprints/')
 
 
-def get_characters_character_id_bookmarks(character_id, if_none_match, page,
-                                          token):
+def get_characters_character_id_bookmarks(token,
+                                          page,
+                                          character_id,
+                                          if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -137,8 +145,10 @@ def get_characters_character_id_bookmarks(character_id, if_none_match, page,
                         path=f'/characters/{character_id}/bookmarks/')
 
 
-def get_characters_character_id_bookmarks_folders(character_id, if_none_match,
-                                                  page, token):
+def get_characters_character_id_bookmarks_folders(token,
+                                                  page,
+                                                  character_id,
+                                                  if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -160,8 +170,10 @@ def get_characters_character_id_bookmarks_folders(character_id, if_none_match,
                         path=f'/characters/{character_id}/bookmarks/folders/')
 
 
-def get_characters_character_id_calendar_event_id(character_id, event_id,
-                                                  if_none_match, token):
+def get_characters_character_id_calendar_event_id(token,
+                                                  event_id,
+                                                  character_id,
+                                                  if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param event_id: The id of the event requested
@@ -187,8 +199,8 @@ def get_characters_character_id_calendar_event_id(character_id, event_id,
         path=f'/characters/{character_id}/calendar/{event_id}/')
 
 
-def put_characters_character_id_calendar_event_id(character_id, event_id,
-                                                  response, token):
+def put_characters_character_id_calendar_event_id(token, response, event_id,
+                                                  character_id):
     """
     :param character_id: An EVE character ID
     :param event_id: The ID of the event requested
@@ -213,7 +225,8 @@ def put_characters_character_id_calendar_event_id(character_id, event_id,
         path=f'/characters/{character_id}/calendar/{event_id}/')
 
 
-def get_characters_character_id_clones(character_id, if_none_match, token):
+def get_characters_character_id_clones(token, character_id,
+                                       if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -236,7 +249,7 @@ def get_characters_character_id_clones(character_id, if_none_match, token):
                         path=f'/characters/{character_id}/clones/')
 
 
-def delete_characters_character_id_contacts(character_id, contact_ids, token):
+def delete_characters_character_id_contacts(token, contact_ids, character_id):
     """
     :param character_id: An EVE character ID
     :param contact_ids: A list of contacts to delete
@@ -255,8 +268,10 @@ def delete_characters_character_id_contacts(character_id, contact_ids, token):
                         path=f'/characters/{character_id}/contacts/')
 
 
-def get_characters_character_id_contacts(character_id, if_none_match, page,
-                                         token):
+def get_characters_character_id_contacts(token,
+                                         page,
+                                         character_id,
+                                         if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -278,8 +293,8 @@ def get_characters_character_id_contacts(character_id, if_none_match, page,
                         path=f'/characters/{character_id}/contacts/')
 
 
-def post_characters_character_id_contacts(character_id, contact_ids, label_ids,
-                                          standing, token, watched):
+def post_characters_character_id_contacts(watched, token, standing, label_ids,
+                                          contact_ids, character_id):
     """
     :param character_id: An EVE character ID
     :param contact_ids: A list of contacts
@@ -304,8 +319,8 @@ def post_characters_character_id_contacts(character_id, contact_ids, label_ids,
                         path=f'/characters/{character_id}/contacts/')
 
 
-def put_characters_character_id_contacts(character_id, contact_ids, label_ids,
-                                         standing, token, watched):
+def put_characters_character_id_contacts(watched, token, standing, label_ids,
+                                         contact_ids, character_id):
     """
     :param character_id: An EVE character ID
     :param contact_ids: A list of contacts
@@ -330,7 +345,9 @@ def put_characters_character_id_contacts(character_id, contact_ids, label_ids,
                         path=f'/characters/{character_id}/contacts/')
 
 
-def get_characters_character_id_fittings(character_id, if_none_match, token):
+def get_characters_character_id_fittings(token,
+                                         character_id,
+                                         if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -350,7 +367,7 @@ def get_characters_character_id_fittings(character_id, if_none_match, token):
                         path=f'/characters/{character_id}/fittings/')
 
 
-def post_characters_character_id_fittings(character_id, fitting, token):
+def post_characters_character_id_fittings(token, fitting, character_id):
     """
     :param character_id: An EVE character ID
     :param fitting: Details about the new fitting
@@ -369,7 +386,7 @@ def post_characters_character_id_fittings(character_id, fitting, token):
                         path=f'/characters/{character_id}/fittings/')
 
 
-def get_characters_character_id_fleet(character_id, if_none_match, token):
+def get_characters_character_id_fleet(token, character_id, if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -388,7 +405,9 @@ def get_characters_character_id_fleet(character_id, if_none_match, token):
                         path=f'/characters/{character_id}/fleet/')
 
 
-def get_characters_character_id_location(character_id, if_none_match, token):
+def get_characters_character_id_location(token,
+                                         character_id,
+                                         if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -407,8 +426,9 @@ def get_characters_character_id_location(character_id, if_none_match, token):
                         path=f'/characters/{character_id}/location/')
 
 
-def get_characters_character_id_mail_labels(character_id, if_none_match,
-                                            token):
+def get_characters_character_id_mail_labels(token,
+                                            character_id,
+                                            if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -431,7 +451,7 @@ def get_characters_character_id_mail_labels(character_id, if_none_match,
                         path=f'/characters/{character_id}/mail/labels/')
 
 
-def post_characters_character_id_mail_labels(character_id, label, token):
+def post_characters_character_id_mail_labels(token, label, character_id):
     """
     :param character_id: An EVE character ID
     :param label: Label to create
@@ -451,7 +471,8 @@ def post_characters_character_id_mail_labels(character_id, label, token):
                         path=f'/characters/{character_id}/mail/labels/')
 
 
-def get_characters_character_id_online(character_id, if_none_match, token):
+def get_characters_character_id_online(token, character_id,
+                                       if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -471,7 +492,8 @@ def get_characters_character_id_online(character_id, if_none_match, token):
                         path=f'/characters/{character_id}/online/')
 
 
-def get_characters_character_id_orders(character_id, if_none_match, token):
+def get_characters_character_id_orders(token, character_id,
+                                       if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -491,8 +513,10 @@ def get_characters_character_id_orders(character_id, if_none_match, token):
                         path=f'/characters/{character_id}/orders/')
 
 
-def get_characters_character_id_planets_planet_id(character_id, if_none_match,
-                                                  planet_id, token):
+def get_characters_character_id_planets_planet_id(token,
+                                                  planet_id,
+                                                  character_id,
+                                                  if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -518,7 +542,7 @@ def get_characters_character_id_planets_planet_id(character_id, if_none_match,
         path=f'/characters/{character_id}/planets/{planet_id}/')
 
 
-def get_characters_character_id_portrait(character_id, if_none_match):
+def get_characters_character_id_portrait(character_id, if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -536,7 +560,7 @@ def get_characters_character_id_portrait(character_id, if_none_match):
                         path=f'/characters/{character_id}/portrait/')
 
 
-def get_characters_character_id_roles(character_id, if_none_match, token):
+def get_characters_character_id_roles(token, character_id, if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -556,7 +580,7 @@ def get_characters_character_id_roles(character_id, if_none_match, token):
                         path=f'/characters/{character_id}/roles/')
 
 
-def get_characters_character_id_ship(character_id, if_none_match, token):
+def get_characters_character_id_ship(token, character_id, if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -577,7 +601,9 @@ def get_characters_character_id_ship(character_id, if_none_match, token):
                         path=f'/characters/{character_id}/ship/')
 
 
-def get_characters_character_id_skillqueue(character_id, if_none_match, token):
+def get_characters_character_id_skillqueue(token,
+                                           character_id,
+                                           if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -598,7 +624,7 @@ def get_characters_character_id_skillqueue(character_id, if_none_match, token):
                         path=f'/characters/{character_id}/skillqueue/')
 
 
-def get_characters_character_id_stats(character_id, if_none_match, token):
+def get_characters_character_id_stats(token, character_id, if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -619,7 +645,7 @@ def get_characters_character_id_stats(character_id, if_none_match, token):
 
 
 def get_corporations_corporation_id_alliancehistory(corporation_id,
-                                                    if_none_match):
+                                                    if_none_match=None):
     """
     :param corporation_id: An EVE corporation ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -638,8 +664,10 @@ def get_corporations_corporation_id_alliancehistory(corporation_id,
         path=f'/corporations/{corporation_id}/alliancehistory/')
 
 
-def get_corporations_corporation_id_assets(corporation_id, if_none_match, page,
-                                           token):
+def get_corporations_corporation_id_assets(token,
+                                           page,
+                                           corporation_id,
+                                           if_none_match=None):
     """
     :param corporation_id: An EVE corporation ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -667,8 +695,8 @@ def get_corporations_corporation_id_assets(corporation_id, if_none_match, page,
                         path=f'/corporations/{corporation_id}/assets/')
 
 
-def post_corporations_corporation_id_assets_locations(corporation_id, item_ids,
-                                                      token):
+def post_corporations_corporation_id_assets_locations(token, item_ids,
+                                                      corporation_id):
     """
     :param corporation_id: An EVE corporation ID
     :param item_ids: A list of item ids
@@ -691,8 +719,10 @@ def post_corporations_corporation_id_assets_locations(corporation_id, item_ids,
         path=f'/corporations/{corporation_id}/assets/locations/')
 
 
-def get_corporations_corporation_id_blueprints(corporation_id, if_none_match,
-                                               page, token):
+def get_corporations_corporation_id_blueprints(token,
+                                               page,
+                                               corporation_id,
+                                               if_none_match=None):
     """
     :param corporation_id: An EVE corporation ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -717,8 +747,10 @@ def get_corporations_corporation_id_blueprints(corporation_id, if_none_match,
                         path=f'/corporations/{corporation_id}/blueprints/')
 
 
-def get_corporations_corporation_id_contacts(corporation_id, if_none_match,
-                                             page, token):
+def get_corporations_corporation_id_contacts(token,
+                                             page,
+                                             corporation_id,
+                                             if_none_match=None):
     """
     :param corporation_id: An EVE corporation ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -740,9 +772,10 @@ def get_corporations_corporation_id_contacts(corporation_id, if_none_match,
                         path=f'/corporations/{corporation_id}/contacts/')
 
 
-def get_corporations_corporation_id_containers_logs(corporation_id,
-                                                    if_none_match, page,
-                                                    token):
+def get_corporations_corporation_id_containers_logs(token,
+                                                    page,
+                                                    corporation_id,
+                                                    if_none_match=None):
     """
     :param corporation_id: An EVE corporation ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -768,8 +801,9 @@ def get_corporations_corporation_id_containers_logs(corporation_id,
         path=f'/corporations/{corporation_id}/containers/logs/')
 
 
-def get_corporations_corporation_id_members(corporation_id, if_none_match,
-                                            token):
+def get_corporations_corporation_id_members(token,
+                                            corporation_id,
+                                            if_none_match=None):
     """
     :param corporation_id: An EVE corporation ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -792,8 +826,10 @@ def get_corporations_corporation_id_members(corporation_id, if_none_match,
                         path=f'/corporations/{corporation_id}/members/')
 
 
-def get_corporations_corporation_id_orders(corporation_id, if_none_match, page,
-                                           token):
+def get_corporations_corporation_id_orders(token,
+                                           page,
+                                           corporation_id,
+                                           if_none_match=None):
     """
     :param corporation_id: An EVE corporation ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -821,8 +857,10 @@ def get_corporations_corporation_id_orders(corporation_id, if_none_match, page,
                         path=f'/corporations/{corporation_id}/orders/')
 
 
-def get_corporations_corporation_id_orders_history(corporation_id,
-                                                   if_none_match, page, token):
+def get_corporations_corporation_id_orders_history(token,
+                                                   page,
+                                                   corporation_id,
+                                                   if_none_match=None):
     """
     :param corporation_id: An EVE corporation ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -847,9 +885,12 @@ def get_corporations_corporation_id_orders_history(corporation_id,
                         path=f'/corporations/{corporation_id}/orders/history/')
 
 
-def get_corporations_corporation_id_structures(accept_language, corporation_id,
-                                               if_none_match, language, page,
-                                               token):
+def get_corporations_corporation_id_structures(token,
+                                               page,
+                                               language,
+                                               corporation_id,
+                                               accept_language='en-US',
+                                               if_none_match=None):
     """
     :param accept_language: ['de', 'en-us', 'fr', 'ja', 'ru', 'zh'] Language to use in the response
     :param corporation_id: An EVE corporation ID
@@ -881,7 +922,7 @@ def get_corporations_corporation_id_structures(accept_language, corporation_id,
                         path=f'/corporations/{corporation_id}/structures/')
 
 
-def get_dogma_effects_effect_id(effect_id, if_none_match):
+def get_dogma_effects_effect_id(effect_id, if_none_match=None):
     """
     :param effect_id: A dogma effect ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -899,7 +940,7 @@ def get_dogma_effects_effect_id(effect_id, if_none_match):
                         path=f'/dogma/effects/{effect_id}/')
 
 
-def get_fw_systems(if_none_match):
+def get_fw_systems(if_none_match=None):
     """
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
     An overview of the current ownership of faction warfare solar systems
@@ -915,8 +956,12 @@ def get_fw_systems(if_none_match):
                         path=f'/fw/systems/')
 
 
-def get_search(accept_language, categories, if_none_match, language, search,
-               strict):
+def get_search(strict,
+               search,
+               language,
+               categories,
+               accept_language='en-US',
+               if_none_match=None):
     """
     :param accept_language: ['de', 'en-us', 'fr', 'ja', 'ru', 'zh'] Language to use in the response
     :param categories: Type of entities to search for
@@ -943,8 +988,8 @@ def get_search(accept_language, categories, if_none_match, language, search,
                         path=f'/search/')
 
 
-def post_ui_autopilot_waypoint(add_to_beginning, clear_other_waypoints,
-                               destination_id, token):
+def post_ui_autopilot_waypoint(token, destination_id, clear_other_waypoints,
+                               add_to_beginning):
     """
     :param add_to_beginning: Whether this solar system should be added to the beginning of all waypoints
     :param clear_other_waypoints: Whether clean other waypoints beforing adding this one
@@ -966,7 +1011,9 @@ def post_ui_autopilot_waypoint(add_to_beginning, clear_other_waypoints,
                         path=f'/ui/autopilot/waypoint/')
 
 
-def get_universe_factions(accept_language, if_none_match, language):
+def get_universe_factions(language,
+                          accept_language='en-US',
+                          if_none_match=None):
     """
     :param accept_language: ['de', 'en-us', 'fr', 'ja', 'ru', 'zh'] Language to use in the response
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
@@ -1004,7 +1051,7 @@ def post_universe_names(ids):
                         path=f'/universe/names/')
 
 
-def get_universe_stations_station_id(if_none_match, station_id):
+def get_universe_stations_station_id(station_id, if_none_match=None):
     """
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
     :param station_id: station_id integer
@@ -1022,7 +1069,9 @@ def get_universe_stations_station_id(if_none_match, station_id):
                         path=f'/universe/stations/{station_id}/')
 
 
-def get_universe_structures_structure_id(if_none_match, structure_id, token):
+def get_universe_structures_structure_id(token,
+                                         structure_id,
+                                         if_none_match=None):
     """
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
     :param structure_id: An Eve structure ID
@@ -1042,7 +1091,7 @@ def get_universe_structures_structure_id(if_none_match, structure_id, token):
                         path=f'/universe/structures/{structure_id}/')
 
 
-def get_universe_system_kills(if_none_match):
+def get_universe_system_kills(if_none_match=None):
     """
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
     Get the number of ship, pod and NPC kills per solar system within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with kills will be listed
@@ -1058,8 +1107,10 @@ def get_universe_system_kills(if_none_match):
                         path=f'/universe/system_kills/')
 
 
-def get_universe_types_type_id(accept_language, if_none_match, language,
-                               type_id):
+def get_universe_types_type_id(type_id,
+                               language,
+                               accept_language='en-US',
+                               if_none_match=None):
     """
     :param accept_language: ['de', 'en-us', 'fr', 'ja', 'ru', 'zh'] Language to use in the response
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag

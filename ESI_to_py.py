@@ -89,17 +89,30 @@ def _create_doc_string(ESI_parameters, function_dict):
     return doc_string
 
 
-def _filter_parameter(parameter, as_key_word=False):
+def _filter_parameter(parameter, as_key_word=False):  # TODO refactor to list to avoid the use of ', '
     if 'datasource' == parameter:  # data source will be specified in module
         return ''
-    elif 'If-None-Match' == parameter:  # Adjust name
-        parameter = 'if_none_match'
-    elif 'Accept-Language' == parameter:
-        parameter = 'accept_language'
+    parameter = _pythonic_name(parameter)
+
     if as_key_word:
         return ', ' + parameter + '=' + parameter
     else:
+        if 'if_none_match' == parameter:
+            parameter = 'if_none_match=None'
+        elif 'accept_language' == parameter:
+            parameter = "accept_language='en-US'"
         return ', ' + parameter
+
+
+def _shuffle_kwargs_to_the_end(parameters):
+    shuffled_kwargs = ''
+    shuffled_args = ''
+    for parameter in parameters.split(', '):
+        if '=' in parameter:
+            shuffled_kwargs += ', ' + parameter
+        elif parameter != '':
+            shuffled_args += ', ' + parameter
+    return shuffled_args + shuffled_kwargs
 
 
 def _create_functions(ESI_parameters, ESI_paths, data_source, version):
@@ -117,11 +130,13 @@ def _create_functions(ESI_parameters, ESI_paths, data_source, version):
                     def_parameters += _filter_parameter(parameter['name'])
                     parameters += _filter_parameter(parameter['name'],
                                                     as_key_word=True)
+            def_parameters = _shuffle_kwargs_to_the_end(def_parameters)
             def_parameters = def_parameters.replace(', ', '', 1)
+
             parameters = parameters.replace(', ', '', 1)
             function_name = function_dict['operationId']
 
-            definition = f'def {function_name}({def_parameters}):'
+            definition = f'def {function_name}(*, {def_parameters}):'
             doc_string = _create_doc_string(ESI_parameters, function_dict)
             code = f"    ESI_request.request({parameters}, data_source='{data_source}', version='{version}', path=f'{raw_function_name}')\n\n\n"
             content += definition + doc_string + code

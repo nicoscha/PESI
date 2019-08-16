@@ -1,8 +1,10 @@
 import ESI_request
 
 
-def get_characters_character_id_wallet_journal(character_id, if_none_match,
-                                               page, token):
+def get_characters_character_id_wallet_journal(token,
+                                               page,
+                                               character_id,
+                                               if_none_match=None):
     """
     :param character_id: An EVE character ID
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag

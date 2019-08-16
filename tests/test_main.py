@@ -58,23 +58,37 @@ class Test_ESIReader(unittest.TestCase):
                                                   function_dict=function_dict)
         self.assertEqual(expected_doc_string, doc_string)
 
-    def test_filter_parameter_no_key_word(self):
+    def test_filter_parameter_no_keyword(self):
         expected = ', one'
         returned = ESI_to_py._filter_parameter('one')
         self.assertEqual(expected, returned)
 
-    def test_filter_parameter_unfiltered_as_key_word(self):
+    def test_filter_parameter_unfiltered_as_keyword(self):
         expected = ', one=one'
         returned = ESI_to_py._filter_parameter('one', as_key_word=True)
         self.assertEqual(expected, returned)
 
-    def test_filter_parameter_filtered(self):
+    def test_filter_parameter_filtered_not_keyword(self):
         parameters = {'datasource': '',
-                      'If-None-Match': ', if_none_match',
-                      'Accept-Language': ', accept_language'}
+                      'If-None-Match': ', if_none_match=None',
+                      'Accept-Language': ", accept_language='en-US'"}
         for parameter, expected in parameters.items():
             returned = ESI_to_py._filter_parameter(parameter)
             self.assertEqual(expected, returned)
+
+    def test_filter_parameter_filtered_as_keyword(self):
+        parameters = {'datasource': '',
+                      'If-None-Match': ', if_none_match=if_none_match',
+                      'Accept-Language': ', accept_language=accept_language'}
+        for parameter, expected in parameters.items():
+            returned = ESI_to_py._filter_parameter(parameter, as_key_word=True)
+            self.assertEqual(expected, returned)
+
+    def test_shuffle_kwargs_to_the_end(self):
+        test = ', arg_1, kwarg_1=kwarg_1, arg_2, kwarg_2=kwarg_2, arg_3'
+        returned = ESI_to_py._shuffle_kwargs_to_the_end(test)
+        expected = ', arg_1, arg_2, arg_3, kwarg_1=kwarg_1, kwarg_2=kwarg_2'
+        self.assertEqual(expected, returned)
 
     def test_create_functions(self): # TODO Extract dicts and string in different file (line to long)
         ESI_parameters = {'Accept-Language': {'default': 'en-us', 'description': 'Language to use in the response', 'enum': ['de', 'en-us', 'fr', 'ja', 'ru', 'zh'], 'in': 'header', 'name': 'Accept-Language', 'type': 'string'}, 'If-None-Match': {'description': 'ETag from a previous request. A 304 will be returned if this matches the current ETag', 'in': 'header', 'name': 'If-None-Match', 'type': 'string'}, 'alliance_id': {'description': 'An EVE alliance ID', 'format': 'int32', 'in': 'path', 'minimum': 1, 'name': 'alliance_id', 'required': True, 'type': 'integer'}, 'character_id': {'description': 'An EVE character ID', 'format': 'int32', 'in': 'path', 'minimum': 1, 'name': 'character_id', 'required': True, 'type': 'integer'}, 'corporation_id': {'description': 'An EVE corporation ID', 'format': 'int32', 'in': 'path', 'minimum': 1, 'name': 'corporation_id', 'required': True, 'type': 'integer'}, 'datasource': {'default': 'tranquility', 'description': 'The server name you would like data from', 'enum': ['tranquility', 'singularity'], 'in': 'query', 'name': 'datasource', 'type': 'string'}, 'language': {'default': 'en-us', 'description': 'Language to use in the response, takes precedence over Accept-Language', 'enum': ['de', 'en-us', 'fr', 'ja', 'ru', 'zh'], 'in': 'query', 'name': 'language', 'type': 'string'}, 'page': {'default': 1, 'description': 'Which page of results to return', 'format': 'int32', 'in': 'query', 'minimum': 1, 'name': 'page', 'type': 'integer'}, 'token': {'description': 'Access token to use if unable to set a header', 'in': 'query', 'name': 'token', 'type': 'string'}, 'accept_language': {'default': 'en-us', 'description': 'Language to use in the response', 'enum': ['de', 'en-us', 'fr', 'ja', 'ru', 'zh'], 'in': 'header', 'name': 'Accept-Language', 'type': 'string'}, 'if_none_match': {'description': 'ETag from a previous request. A 304 will be returned if this matches the current ETag', 'in': 'header', 'name': 'If-None-Match', 'type': 'string'}}
@@ -83,7 +97,7 @@ class Test_ESIReader(unittest.TestCase):
                                                ESI_paths=ESI_paths,
                                                data_source='tranquility',
                                                version='latest')
-        expected = '''def get_wars(if_none_match, max_war_id):
+        expected = '''def get_wars(*, max_war_id, if_none_match=None):
     """
     :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
     :param max_war_id: Only return wars with ID smaller than this
