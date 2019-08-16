@@ -5,6 +5,12 @@ import ESI_request
 
 
 class Test_ESIReader(unittest.TestCase):
+    def test_join_parameters(self):
+        test_parameter = ['abc', 'def', 'ghj']
+        returned = ESI_to_py._join_parameters(test_parameter)
+        expected = 'abc, def, ghj'
+        self.assertEqual(expected, returned)
+
     def test_pythonic_name(self):
         non_pythonic_name = 'CamelCase-With-Hyphen'
         pythonic_name = 'camelcase_with_hyphen'
@@ -59,37 +65,38 @@ class Test_ESIReader(unittest.TestCase):
         self.assertEqual(expected_doc_string, doc_string)
 
     def test_filter_parameter_no_keyword(self):
-        expected = ', one'
+        expected = 'one'
         returned = ESI_to_py._filter_parameter('one')
         self.assertEqual(expected, returned)
 
     def test_filter_parameter_unfiltered_as_keyword(self):
-        expected = ', one=one'
+        expected = 'one=one'
         returned = ESI_to_py._filter_parameter('one', as_key_word=True)
         self.assertEqual(expected, returned)
 
     def test_filter_parameter_filtered_not_keyword(self):
         parameters = {'datasource': '',
-                      'If-None-Match': ', if_none_match=None',
-                      'Accept-Language': ", accept_language='en-us'",
-                      'page': ", page='1'"}
+                      'If-None-Match': 'if_none_match=None',
+                      'Accept-Language': "accept_language='en-us'",
+                      'page': "page='1'"}
         for parameter, expected in parameters.items():
             returned = ESI_to_py._filter_parameter(parameter)
             self.assertEqual(expected, returned)
 
     def test_filter_parameter_filtered_as_keyword(self):
         parameters = {'datasource': '',
-                      'If-None-Match': ', if_none_match=if_none_match',
-                      'Accept-Language': ', accept_language=accept_language',
-                      'page': ', page=page'}
+                      'If-None-Match': 'if_none_match=if_none_match',
+                      'Accept-Language': 'accept_language=accept_language',
+                      'page': 'page=page'}
         for parameter, expected in parameters.items():
             returned = ESI_to_py._filter_parameter(parameter, as_key_word=True)
             self.assertEqual(expected, returned)
 
     def test_shuffle_kwargs_to_the_end(self):
-        test = ', arg_1, kwarg_1=kwarg_1, arg_2, kwarg_2=kwarg_2, arg_3'
+        test = ['arg_1', 'kwarg_1=kwarg_1', 'arg_2', 'kwarg_2=kwarg_2', 'arg_3']
         returned = ESI_to_py._shuffle_kwargs_to_the_end(test)
-        expected = ', arg_1, arg_2, arg_3, kwarg_1=kwarg_1, kwarg_2=kwarg_2'
+        expected = ['arg_1', 'arg_2', 'arg_3',
+                    'kwarg_1=kwarg_1', 'kwarg_2=kwarg_2']
         self.assertEqual(expected, returned)
 
     def test_create_functions(self): # TODO Extract dicts and string in different file (line to long)
