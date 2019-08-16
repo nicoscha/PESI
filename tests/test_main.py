@@ -136,6 +136,14 @@ class Test_ESI_request(unittest.TestCase):
                                        version='latest', path='')
         self.assertEqual(response, {'error': 'Not found'})
 
+    def test_simple_ESI_request(self):
+        response = ESI_request.request(if_none_match=None,
+                                       data_source='singularity',
+                                       version='latest',
+                                       path=f'/alliances/')
+        self.assertIsInstance(response, type([]))
+        self.assertNotEqual(response, [])
+
 
 if __name__ == '__main__':
     unittest.main(failfast=True, exit=False)
