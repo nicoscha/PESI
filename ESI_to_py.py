@@ -81,11 +81,12 @@ def _create_doc_string(ESI_parameters, function_dict):
     :param function_dict:
     :return: doc_string: string
     """
-    description = function_dict['description']
     parameter_description = _get_parameters_with_description(function_dict,
                                                              ESI_parameters)
-    default_description = description.replace('\n\n', '\n').replace('\n', '\n    ')
-    doc_string = (f'\n    """\n    {parameter_description}{default_description}\n    """\n')
+    default_description = function_dict['description'].replace('\n\n', '\n')
+    default_description = default_description.replace('\n', '\n    ')
+    doc_string = (f'\n    """\n    {parameter_description}'
+                  f'{default_description}\n    """\n')
     return doc_string
 
 
@@ -165,7 +166,7 @@ def _create_functions(ESI_parameters, ESI_paths, data_source, version):
 def _request_json(version):
     """
     Requests and processes ESI json file
-    :param version: ESI version ['_dev', '_latest', '_legacy', 'dev', 'latest', 'legacy', 'v1', 'v2', 'v3', 'v4', 'v5', 'v6']
+    :param version: ESI version ['dev', 'latest', 'legacy', 'v1', 'v2', ...]
     :return: python dict, json.load(requests.get().text)
     """
     headers = {'accept': 'application/json', }

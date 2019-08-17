@@ -24,7 +24,7 @@ def request(data_source, version, path, **kwargs):
     """
     Requests and processes ESI json file
     :param data_source: ['tranquility', 'singularity']
-    :param version: ESI version ['_dev', '_latest', '_legacy', 'dev', 'latest', 'legacy', 'v1', 'v2', 'v3', 'v4', 'v5', 'v6']
+    :param version: ESI version ['dev', 'latest', 'legacy', 'v1', 'v2', ...]
     :param path: endpoint
     :param kwargs: parameters for the endpoint
     :return: loads: python dict, json.load(requests.get().text)
