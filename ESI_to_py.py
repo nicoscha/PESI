@@ -63,14 +63,18 @@ def _format_code(content):
     return content
 
 
-def _write_to_file(content, file_name):
+def _write_to_file(content, ESI_swagger_version, file):
     """
     :param content: file content
-    :param file_name: string of name and path
+    :param ESI_info_version: EVE Swagger Interface version
+    :param file: string of name and path
     """
-    head = 'import ESI_request\n'
+    head = ('# Python EVE Swagger Interface\n'
+            '# https://github.com/nicoscha/PESI\n'
+            f'# ESI version {ESI_swagger_version}\n'
+            'import ESI_request\n')
     content = _format_code(head + content)
-    with open(file_name, 'w') as file:
+    with open(file, 'w') as file:
         file.write(content)
 
 
@@ -174,10 +178,21 @@ def _request_json(version):
     return loads(get(url, headers=headers).text)
 
 
+def _get_ESI_versions():
+    """
+    :return: List of versions available on the server
+    """
+    headers = {'accept': 'application/json'}
+    params = ()
+    response = get(f'https://esi.evetech.net/versions/', headers=headers,
+                   params=params)
+    versions = loads(response.text)
+    return versions if isinstance(versions, list) else []
+
+
 def run(path):  # pragma: no cover
     data_sources = ['tranquility', 'singularity']
-    versions = ['_dev', '_latest', '_legacy', 'dev', 'latest', 'legacy',
-                'v1', 'v2', 'v3', 'v4', 'v5', 'v6']
+    versions = _get_ESI_versions()
     for data_source, version in [(d,v) for d in data_sources for v in versions]:
         ESI = _request_json(version)
         _convert_parameters(ESI['parameters'])
@@ -185,4 +200,6 @@ def run(path):  # pragma: no cover
                                     ESI_paths=ESI['paths'],
                                     data_source=data_source,
                                     version=version)
-        _write_to_file(content, join(path, f'ESI_{data_source}_{version}.py'))
+        ESI_swagger_version = ESI['info']['version']
+        _write_to_file(content, ESI_swagger_version=ESI_swagger_version,
+                       file=join(path, f'ESI_{data_source}_{version}.py'))

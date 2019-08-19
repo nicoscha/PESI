@@ -5,6 +5,10 @@ import ESI_request
 
 
 class Test_ESIReader(unittest.TestCase):
+    def test_get_ESI_versions(self):
+        versions = ESI_to_py._get_ESI_versions()
+        self.assertIsInstance(versions, list)
+
     def test_join_parameters(self):
         test_parameter = ['abc', 'def', 'ghj']
         returned = ESI_to_py._join_parameters(test_parameter)
