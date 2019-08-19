@@ -1,3 +1,6 @@
+# Python EVE Swagger Interface
+# https://github.com/nicoscha/PESI
+# ESI version 0.8.9
 import ESI_request
 
 
@@ -419,28 +422,6 @@ def get_characters_character_id_fleet(*,
                         path=f'/characters/{character_id}/fleet/')
 
 
-def get_characters_character_id_location(*,
-                                         character_id,
-                                         token,
-                                         if_none_match=None):
-    """
-    :param character_id: An EVE character ID
-    :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
-    :param token: Access token to use if unable to set a header
-    Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable
-    ---
-    Alternate route: `/dev/characters/{character_id}/location/`
-    ---
-    This route is cached for up to 5 seconds
-    """
-    ESI_request.request(character_id=character_id,
-                        if_none_match=if_none_match,
-                        token=token,
-                        data_source='singularity',
-                        version='v2',
-                        path=f'/characters/{character_id}/location/')
-
-
 def get_characters_character_id_mail_labels(*,
                                             character_id,
                                             token,
@@ -602,30 +583,6 @@ def get_characters_character_id_roles(*,
                         data_source='singularity',
                         version='v2',
                         path=f'/characters/{character_id}/roles/')
-
-
-def get_characters_character_id_ship(*,
-                                     character_id,
-                                     token,
-                                     if_none_match=None):
-    """
-    :param character_id: An EVE character ID
-    :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
-    :param token: Access token to use if unable to set a header
-    Get the current ship type, name and id
-    ---
-    Alternate route: `/dev/characters/{character_id}/ship/`
-    ---
-    This route is cached for up to 5 seconds
-    ---
-    [Diff of the upcoming changes](https://esi.evetech.net/diff/v2/dev/#GET-/characters/{character_id}/ship/)
-    """
-    ESI_request.request(character_id=character_id,
-                        if_none_match=if_none_match,
-                        token=token,
-                        data_source='singularity',
-                        version='v2',
-                        path=f'/characters/{character_id}/ship/')
 
 
 def get_characters_character_id_skillqueue(*,

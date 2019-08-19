@@ -1,3 +1,6 @@
+# Python EVE Swagger Interface
+# https://github.com/nicoscha/PESI
+# ESI version 0.8.9
 import ESI_request
 
 

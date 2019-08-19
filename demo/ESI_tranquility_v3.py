@@ -1,3 +1,6 @@
+# Python EVE Swagger Interface
+# https://github.com/nicoscha/PESI
+# ESI version 0.8.9
 import ESI_request
 
 
@@ -182,28 +185,6 @@ def get_characters_character_id_mail_labels(*,
                         data_source='tranquility',
                         version='v3',
                         path=f'/characters/{character_id}/mail/labels/')
-
-
-def get_characters_character_id_online(*,
-                                       character_id,
-                                       token,
-                                       if_none_match=None):
-    """
-    :param character_id: An EVE character ID
-    :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
-    :param token: Access token to use if unable to set a header
-    Checks if the character is currently online
-    ---
-    Alternate route: `/dev/characters/{character_id}/online/`
-    ---
-    This route is cached for up to 60 seconds
-    """
-    ESI_request.request(character_id=character_id,
-                        if_none_match=if_none_match,
-                        token=token,
-                        data_source='tranquility',
-                        version='v3',
-                        path=f'/characters/{character_id}/online/')
 
 
 def get_characters_character_id_planets_planet_id(*,
