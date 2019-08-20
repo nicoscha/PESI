@@ -5,12 +5,14 @@ from requests import get
 from yapf.yapflib.yapf_api import FormatCode
 
 
-def _pythonic_name(name):
+def _identifier(name):
     """
     :param name: string
     :return: string in lower case with '_' instead of '-'
     """
-    return name.lower().replace('-', '_')
+    if name.isidentifier():
+        return name
+    return name.lower().lstrip('0123456789. ').replace('-', '_')
 
 
 def _convert_parameters(ESI_parameters):
@@ -20,7 +22,7 @@ def _convert_parameters(ESI_parameters):
     """
     addition = {}
     for parameter, value in ESI_parameters.items():
-        pythonic_name = _pythonic_name(parameter)
+        pythonic_name = _identifier(parameter)
         if pythonic_name != parameter:
             addition[pythonic_name] = value
     ESI_parameters.update(addition)
@@ -36,7 +38,7 @@ def _get_parameters_with_description(function_dict, parameters):
         description = ':param '
         if '$ref' in parameter:
             parameter_name = parameter['$ref'].replace('#/parameters/', '')
-            parameter_name = _pythonic_name(parameter_name)
+            parameter_name = _identifier(parameter_name)
             if parameter_name == 'datasource':
                 continue  # This parameter is not a function parameter
             description += parameter_name + ': '
@@ -98,7 +100,7 @@ def _create_doc_string(ESI_parameters, function_dict):
 def _filter_parameter(parameter, as_key_word=False):
     if 'datasource' == parameter:  # data source will be specified in module
         return ''
-    parameter = _pythonic_name(parameter)
+    parameter = _identifier(parameter)
 
     if as_key_word:
         return parameter + '=' + parameter
