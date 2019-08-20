@@ -1,6 +1,7 @@
-from requests import get
-from os.path import join
 from json import loads
+from os.path import join
+
+from requests import get
 from yapf.yapflib.yapf_api import FormatCode
 
 

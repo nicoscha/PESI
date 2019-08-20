@@ -1,7 +1,7 @@
 import unittest
 
-import ESI_to_py
 import ESI_request
+import ESI_to_py
 
 
 class Test_ESIReader(unittest.TestCase):
@@ -15,11 +15,11 @@ class Test_ESIReader(unittest.TestCase):
         expected = 'abc, def, ghj'
         self.assertEqual(expected, returned)
 
-    def test_pythonic_name(self):
-        non_pythonic_name = 'CamelCase-With-Hyphen'
-        pythonic_name = 'camelcase_with_hyphen'
-        self.assertEqual(ESI_to_py._pythonic_name(non_pythonic_name),
-                         pythonic_name)
+    def test_identifier(self):
+        non_identifier = '375. CamelCase-With-Hyphen'
+        identifier = 'camelcase_with_hyphen'
+        self.assertEqual(ESI_to_py._identifier(non_identifier),
+                         identifier)
 
     def test_convert_parameters(self):
         ESI_parameters = {'pythonic_name': None, 'CamelCase-With-Hyphen': True}
