@@ -20,6 +20,7 @@ class Test_ESIReader(unittest.TestCase):
         identifier = 'camelcase_with_hyphen'
         self.assertEqual(ESI_to_py._identifier(non_identifier),
                          identifier)
+        self.assertEqual(identifier, identifier)
 
     def test_convert_parameters(self):
         ESI_parameters = {'pythonic_name': None, 'CamelCase-With-Hyphen': True}
