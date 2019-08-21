@@ -33,11 +33,12 @@ class Test_ESIReader(unittest.TestCase):
     def test_get_parameters_with_description(self):
         function_dict = {'parameters': [{'$ref': '#/parameters/datasource'},
                                         {'$ref': '#/parameters/language',
-                                         'enum':['de', 'en-us', 'fr',
+                                         'enum': ['de', 'en-us', 'fr',
                                                  'ja', 'ru', 'zh']},
                                         {'description': 'ID for a war',
                                          'format': 'int32', 'in': 'path',
                                          'minimum': 1, 'name': 'war_id',
+                                         'enum': [1, 2, 3],
                                          'required': True, 'type': 'integer'}]}
         parameters = {'datasource': {'default': 'tranquility',
                                      'description': 'The server name you would like data from',
@@ -57,7 +58,7 @@ class Test_ESIReader(unittest.TestCase):
                                 ''''ja', 'ru', 'zh'] Language to use in the '''
                                 'response, takes precedence over '
                                 'Accept-Language\n'
-                                '    :param war_id: ID for a war\n    ')
+                                '    :param war_id: [1, 2, 3] ID for a war\n    ')
         self.assertEqual(expected_description, full_description)
 
     def test_format_code(self):
@@ -223,5 +224,5 @@ class Test_ESI_request(unittest.TestCase):
         self.assertNotEqual(response, [])
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     unittest.main(failfast=True, exit=False)
