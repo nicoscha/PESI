@@ -197,9 +197,10 @@ class Test_ESIReader(unittest.TestCase):
 
 
 class Test_ESI_request(unittest.TestCase):
-    def test_args_to_params(self):
-        expected_params = (('agr1', 1), ('agr2', 2))
-        returned_params = ESI_request._args_to_params({'agr1': 1, 'agr2': 2})
+    def test_args_to_params_edge_cases(self):
+        expected_params = (('If-None-Match', 1), ('Accept-Language', 2))
+        returned_params = ESI_request._args_to_params({'if_none_match': 1,
+                                                       'accept_language': 2})
         self.assertEqual(expected_params, returned_params)
 
     def test_request_no_parameter(self):
