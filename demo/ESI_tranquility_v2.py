@@ -22,6 +22,7 @@ def get_alliances_alliance_id(*, alliance_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/alliances/{alliance_id}/')
 
 
@@ -48,6 +49,7 @@ def get_alliances_alliance_id_contacts(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/alliances/{alliance_id}/contacts/')
 
 
@@ -77,6 +79,7 @@ def get_characters_character_id_assets(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/assets/')
 
 
@@ -97,6 +100,7 @@ def post_characters_character_id_assets_locations(*, character_id, item_ids,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/assets/locations/')
 
 
@@ -123,6 +127,7 @@ def get_characters_character_id_blueprints(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/blueprints/')
 
 
@@ -149,6 +154,7 @@ def get_characters_character_id_bookmarks(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/bookmarks/')
 
 
@@ -175,6 +181,7 @@ def get_characters_character_id_bookmarks_folders(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/bookmarks/folders/')
 
 
@@ -205,6 +212,7 @@ def get_characters_character_id_calendar_event_id(*,
         token=token,
         data_source='tranquility',
         version='v2',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/calendar/{event_id}/')
 
 
@@ -231,6 +239,7 @@ def put_characters_character_id_calendar_event_id(*, character_id, event_id,
         token=token,
         data_source='tranquility',
         version='v2',
+        HTTP_method='PUT',
         path=f'/characters/{character_id}/calendar/{event_id}/')
 
 
@@ -257,6 +266,7 @@ def get_characters_character_id_clones(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/clones/')
 
 
@@ -277,6 +287,7 @@ def delete_characters_character_id_contacts(*, character_id, contact_ids,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='DELETE',
                         path=f'/characters/{character_id}/contacts/')
 
 
@@ -303,6 +314,7 @@ def get_characters_character_id_contacts(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/contacts/')
 
 
@@ -329,6 +341,7 @@ def post_characters_character_id_contacts(*, character_id, contact_ids,
                         watched=watched,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/contacts/')
 
 
@@ -355,6 +368,7 @@ def put_characters_character_id_contacts(*, character_id, contact_ids,
                         watched=watched,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='PUT',
                         path=f'/characters/{character_id}/contacts/')
 
 
@@ -378,6 +392,7 @@ def get_characters_character_id_fittings(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/fittings/')
 
 
@@ -397,6 +412,7 @@ def post_characters_character_id_fittings(*, character_id, fitting, token):
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/fittings/')
 
 
@@ -419,7 +435,31 @@ def get_characters_character_id_fleet(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/fleet/')
+
+
+def get_characters_character_id_location(*,
+                                         character_id,
+                                         token,
+                                         if_none_match=None):
+    """
+    :param character_id: An EVE character ID
+    :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
+    :param token: Access token to use if unable to set a header
+    Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable
+    ---
+    Alternate route: `/dev/characters/{character_id}/location/`
+    ---
+    This route is cached for up to 5 seconds
+    """
+    ESI_request.request(character_id=character_id,
+                        if_none_match=if_none_match,
+                        token=token,
+                        data_source='tranquility',
+                        version='v2',
+                        HTTP_method='GET',
+                        path=f'/characters/{character_id}/location/')
 
 
 def get_characters_character_id_mail_labels(*,
@@ -445,6 +485,7 @@ def get_characters_character_id_mail_labels(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/mail/labels/')
 
 
@@ -465,6 +506,7 @@ def post_characters_character_id_mail_labels(*, character_id, label, token):
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/mail/labels/')
 
 
@@ -478,7 +520,6 @@ def get_characters_character_id_online(*,
     :param token: Access token to use if unable to set a header
     Checks if the character is currently online
     ---
-    Alternate route: `/dev/characters/{character_id}/online/`
     Alternate route: `/latest/characters/{character_id}/online/`
     ---
     This route is cached for up to 60 seconds
@@ -488,6 +529,7 @@ def get_characters_character_id_online(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/online/')
 
 
@@ -511,6 +553,7 @@ def get_characters_character_id_orders(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/orders/')
 
 
@@ -541,6 +584,7 @@ def get_characters_character_id_planets_planet_id(*,
         token=token,
         data_source='tranquility',
         version='v2',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/planets/{planet_id}/')
 
 
@@ -559,6 +603,7 @@ def get_characters_character_id_portrait(*, character_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/portrait/')
 
 
@@ -582,7 +627,31 @@ def get_characters_character_id_roles(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/roles/')
+
+
+def get_characters_character_id_ship(*,
+                                     character_id,
+                                     token,
+                                     if_none_match=None):
+    """
+    :param character_id: An EVE character ID
+    :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
+    :param token: Access token to use if unable to set a header
+    Get the current ship type, name and id
+    ---
+    Alternate route: `/dev/characters/{character_id}/ship/`
+    ---
+    This route is cached for up to 5 seconds
+    """
+    ESI_request.request(character_id=character_id,
+                        if_none_match=if_none_match,
+                        token=token,
+                        data_source='tranquility',
+                        version='v2',
+                        HTTP_method='GET',
+                        path=f'/characters/{character_id}/ship/')
 
 
 def get_characters_character_id_skillqueue(*,
@@ -606,6 +675,7 @@ def get_characters_character_id_skillqueue(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/skillqueue/')
 
 
@@ -629,6 +699,7 @@ def get_characters_character_id_stats(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/stats/')
 
 
@@ -650,6 +721,7 @@ def get_corporations_corporation_id_alliancehistory(*,
         if_none_match=if_none_match,
         data_source='tranquility',
         version='v2',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/alliancehistory/')
 
 
@@ -682,6 +754,7 @@ def get_corporations_corporation_id_assets(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/assets/')
 
 
@@ -706,6 +779,7 @@ def post_corporations_corporation_id_assets_locations(*, corporation_id,
         token=token,
         data_source='tranquility',
         version='v2',
+        HTTP_method='POST',
         path=f'/corporations/{corporation_id}/assets/locations/')
 
 
@@ -735,6 +809,7 @@ def get_corporations_corporation_id_blueprints(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/blueprints/')
 
 
@@ -761,6 +836,7 @@ def get_corporations_corporation_id_contacts(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/contacts/')
 
 
@@ -791,6 +867,7 @@ def get_corporations_corporation_id_containers_logs(*,
         token=token,
         data_source='tranquility',
         version='v2',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/containers/logs/')
 
 
@@ -817,6 +894,7 @@ def get_corporations_corporation_id_members(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/members/')
 
 
@@ -849,6 +927,7 @@ def get_corporations_corporation_id_orders(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/orders/')
 
 
@@ -878,6 +957,7 @@ def get_corporations_corporation_id_orders_history(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/orders/history/')
 
 
@@ -916,6 +996,7 @@ def get_corporations_corporation_id_structures(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/structures/')
 
 
@@ -934,6 +1015,7 @@ def get_dogma_effects_effect_id(*, effect_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/dogma/effects/{effect_id}/')
 
 
@@ -950,6 +1032,7 @@ def get_fw_systems(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/fw/systems/')
 
 
@@ -983,6 +1066,7 @@ def get_search(*,
                         strict=strict,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/search/')
 
 
@@ -1006,6 +1090,7 @@ def post_ui_autopilot_waypoint(*, add_to_beginning, clear_other_waypoints,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='POST',
                         path=f'/ui/autopilot/waypoint/')
 
 
@@ -1029,6 +1114,7 @@ def get_universe_factions(*,
                         language=language,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/universe/factions/')
 
 
@@ -1047,6 +1133,7 @@ def post_universe_names(*, ids):
     ESI_request.request(ids=ids,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='POST',
                         path=f'/universe/names/')
 
 
@@ -1065,6 +1152,7 @@ def get_universe_stations_station_id(*, station_id, if_none_match=None):
                         station_id=station_id,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/universe/stations/{station_id}/')
 
 
@@ -1088,6 +1176,7 @@ def get_universe_structures_structure_id(*,
                         token=token,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/universe/structures/{structure_id}/')
 
 
@@ -1104,6 +1193,7 @@ def get_universe_system_kills(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/universe/system_kills/')
 
 
@@ -1133,4 +1223,5 @@ def get_universe_types_type_id(*,
                         type_id=type_id,
                         data_source='tranquility',
                         version='v2',
+                        HTTP_method='GET',
                         path=f'/universe/types/{type_id}/')

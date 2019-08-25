@@ -189,7 +189,7 @@ class Test_ESIReader(unittest.TestCase):
             '    """\n'
             '    ESI_request.request(if_none_match=if_none_match, '
             "max_war_id=max_war_id, data_source='tranquility', "
-            "version='latest', path=f'/wars/')\n\n\n")
+            "version='latest', HTTP_method='GET', path=f'/wars/')\n\n\n")
         self.assertEqual(expected, function)
 
     def test_request_json(self):
@@ -206,19 +206,21 @@ class Test_ESI_request(unittest.TestCase):
 
     def test_request_no_parameter(self):
         response = ESI_request.request(data_source='tranquility',
-                                       version='latest', path='')
+                                       version='latest', HTTP_method='GET',
+                                       path='')
         self.assertEqual(response, {'error': 'Not found'})
 
     def test_request_one_parameter(self):
         response = ESI_request.request(alliance_id='1',
                                        data_source='tranquility',
-                                       version='latest', path='')
+                                       version='latest', HTTP_method='GET',
+                                       path='')
         self.assertEqual(response, {'error': 'Not found'})
 
     def test_simple_ESI_request(self):
         response = ESI_request.request(if_none_match=None,
                                        data_source='singularity',
-                                       version='latest',
+                                       version='latest', HTTP_method='GET',
                                        path=f'/alliances/')
         self.assertIsInstance(response, type([]))
         self.assertNotEqual(response, [])

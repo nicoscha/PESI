@@ -19,6 +19,7 @@ def get_alliances_alliance_id(*, alliance_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/alliances/{alliance_id}/')
 
 
@@ -40,6 +41,7 @@ def get_characters_character_id(*, character_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/')
 
 
@@ -66,6 +68,7 @@ def get_characters_character_id_assets(*,
                         token=token,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/assets/')
 
 
@@ -93,6 +96,7 @@ def get_characters_character_id_calendar_event_id(*,
         token=token,
         data_source='singularity',
         version='v3',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/calendar/{event_id}/')
 
 
@@ -116,6 +120,7 @@ def put_characters_character_id_calendar_event_id(*, character_id, event_id,
         token=token,
         data_source='singularity',
         version='v3',
+        HTTP_method='PUT',
         path=f'/characters/{character_id}/calendar/{event_id}/')
 
 
@@ -139,6 +144,7 @@ def get_characters_character_id_clones(*,
                         token=token,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/clones/')
 
 
@@ -161,6 +167,7 @@ def post_characters_character_id_cspa(*, character_id, characters, token):
                         token=token,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/cspa/')
 
 
@@ -184,7 +191,31 @@ def get_characters_character_id_mail_labels(*,
                         token=token,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/mail/labels/')
+
+
+def get_characters_character_id_online(*,
+                                       character_id,
+                                       token,
+                                       if_none_match=None):
+    """
+    :param character_id: An EVE character ID
+    :param if_none_match: ETag from a previous request. A 304 will be returned if this matches the current ETag
+    :param token: Access token to use if unable to set a header
+    Checks if the character is currently online
+    ---
+    Alternate route: `/dev/characters/{character_id}/online/`
+    ---
+    This route is cached for up to 60 seconds
+    """
+    ESI_request.request(character_id=character_id,
+                        if_none_match=if_none_match,
+                        token=token,
+                        data_source='singularity',
+                        version='v3',
+                        HTTP_method='GET',
+                        path=f'/characters/{character_id}/online/')
 
 
 def get_characters_character_id_planets_planet_id(*,
@@ -211,6 +242,7 @@ def get_characters_character_id_planets_planet_id(*,
         token=token,
         data_source='singularity',
         version='v3',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/planets/{planet_id}/')
 
 
@@ -250,6 +282,7 @@ def get_characters_character_id_search(*,
                         token=token,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/search/')
 
 
@@ -276,6 +309,7 @@ def get_characters_character_id_skills(*,
                         token=token,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/skills/')
 
 
@@ -297,6 +331,7 @@ def get_corporations_corporation_id(*, corporation_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/')
 
 
@@ -326,6 +361,7 @@ def get_corporations_corporation_id_assets(*,
                         token=token,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/assets/')
 
 
@@ -349,6 +385,7 @@ def get_corporations_corporation_id_members(*,
                         token=token,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/members/')
 
 
@@ -378,6 +415,7 @@ def get_corporations_corporation_id_orders(*,
                         token=token,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/orders/')
 
 
@@ -413,6 +451,7 @@ def get_corporations_corporation_id_structures(*,
                         token=token,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/structures/')
 
 
@@ -445,6 +484,7 @@ def get_corporations_corporation_id_wallets_division_journal(
         token=token,
         data_source='singularity',
         version='v3',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/wallets/{division}/journal/')
 
 
@@ -460,6 +500,7 @@ def post_universe_names(*, ids):
     ESI_request.request(ids=ids,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='POST',
                         path=f'/universe/names/')
 
 
@@ -489,6 +530,7 @@ def get_universe_systems_system_id(*,
                         system_id=system_id,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/universe/systems/{system_id}/')
 
 
@@ -515,4 +557,5 @@ def get_universe_types_type_id(*,
                         type_id=type_id,
                         data_source='singularity',
                         version='v3',
+                        HTTP_method='GET',
                         path=f'/universe/types/{type_id}/')

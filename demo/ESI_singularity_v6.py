@@ -27,4 +27,5 @@ def get_characters_character_id_wallet_journal(*,
                         token=token,
                         data_source='singularity',
                         version='v6',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/wallet/journal/')

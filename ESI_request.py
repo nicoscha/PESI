@@ -1,4 +1,4 @@
-from requests import get
+import requests
 from json import loads
 
 
@@ -20,17 +20,19 @@ def _args_to_params(kwargs):
     return params
 
 
-def request(data_source, version, path, **kwargs):
+def request(data_source, version, HTTP_method, path, **kwargs):
     """
     Requests and processes ESI json file
     :param data_source: ['tranquility', 'singularity']
     :param version: ESI version ['dev', 'latest', 'legacy', 'v1', 'v2', ...]
+    :param HTTP_method: ['GET', 'POST', 'PUT', 'DELETE', ...]
     :param path: endpoint
     :param kwargs: parameters for the endpoint
     :return: loads: python dict, json.load(requests.get().text)
     """
     headers = {'accept': 'application/json'}
     params = _args_to_params(kwargs)
-    response = get(f'https://esi.evetech.net/{version}{path}',
-                   headers=headers, params=params)
+    response = requests.request(HTTP_method,
+                                f'https://esi.evetech.net/{version}{path}',
+                                headers=headers, params=params)
     return loads(response.text)

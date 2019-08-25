@@ -165,6 +165,7 @@ def _create_functions(ESI_parameters, ESI_paths, data_source, version):
             code = (f"    ESI_request.request({parameters}, "
                     f"data_source='{data_source}', "
                     f"version='{version}', "
+                    f"HTTP_method='{function.upper()}', "
                     f"path=f'{raw_function_name}')\n\n\n")
             content += definition + doc_string + code
     return content

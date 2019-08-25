@@ -20,6 +20,7 @@ def get_alliances(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/alliances/')
 
 
@@ -41,6 +42,7 @@ def get_alliances_alliance_id(*, alliance_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/alliances/{alliance_id}/')
 
 
@@ -70,6 +72,7 @@ def get_alliances_alliance_id_contacts(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/alliances/{alliance_id}/contacts/')
 
 
@@ -96,6 +99,7 @@ def get_alliances_alliance_id_contacts_labels(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/alliances/{alliance_id}/contacts/labels/')
 
 
@@ -117,6 +121,7 @@ def get_alliances_alliance_id_corporations(*, alliance_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/alliances/{alliance_id}/corporations/')
 
 
@@ -138,6 +143,7 @@ def get_alliances_alliance_id_icons(*, alliance_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/alliances/{alliance_id}/icons/')
 
 
@@ -157,6 +163,7 @@ def post_characters_affiliation(*, characters):
     ESI_request.request(characters=characters,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/characters/affiliation/')
 
 
@@ -178,6 +185,7 @@ def get_characters_character_id(*, character_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/')
 
 
@@ -204,6 +212,7 @@ def get_characters_character_id_agents_research(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/agents_research/')
 
 
@@ -233,6 +242,7 @@ def get_characters_character_id_assets(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/assets/')
 
 
@@ -256,6 +266,7 @@ def post_characters_character_id_assets_locations(*, character_id, item_ids,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/assets/locations/')
 
 
@@ -279,6 +290,7 @@ def post_characters_character_id_assets_names(*, character_id, item_ids,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/assets/names/')
 
 
@@ -305,6 +317,7 @@ def get_characters_character_id_attributes(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/attributes/')
 
 
@@ -331,6 +344,7 @@ def get_characters_character_id_blueprints(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/blueprints/')
 
 
@@ -357,6 +371,7 @@ def get_characters_character_id_bookmarks(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/bookmarks/')
 
 
@@ -383,6 +398,7 @@ def get_characters_character_id_bookmarks_folders(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/bookmarks/folders/')
 
 
@@ -412,6 +428,7 @@ def get_characters_character_id_calendar(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/calendar/')
 
 
@@ -442,6 +459,7 @@ def get_characters_character_id_calendar_event_id(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/calendar/{event_id}/')
 
 
@@ -468,6 +486,7 @@ def put_characters_character_id_calendar_event_id(*, character_id, event_id,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='PUT',
         path=f'/characters/{character_id}/calendar/{event_id}/')
 
 
@@ -495,6 +514,7 @@ def get_characters_character_id_calendar_event_id_attendees(
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/calendar/{event_id}/attendees/')
 
 
@@ -521,6 +541,7 @@ def get_characters_character_id_clones(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/clones/')
 
 
@@ -544,6 +565,7 @@ def delete_characters_character_id_contacts(*, character_id, contact_ids,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='DELETE',
                         path=f'/characters/{character_id}/contacts/')
 
 
@@ -573,6 +595,7 @@ def get_characters_character_id_contacts(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/contacts/')
 
 
@@ -602,6 +625,7 @@ def post_characters_character_id_contacts(*, character_id, contact_ids,
                         watched=watched,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/contacts/')
 
 
@@ -631,6 +655,7 @@ def put_characters_character_id_contacts(*, character_id, contact_ids,
                         watched=watched,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='PUT',
                         path=f'/characters/{character_id}/contacts/')
 
 
@@ -657,6 +682,7 @@ def get_characters_character_id_contacts_labels(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/contacts/labels/')
 
 
@@ -686,6 +712,7 @@ def get_characters_character_id_contracts(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/contracts/')
 
 
@@ -713,6 +740,7 @@ def get_characters_character_id_contracts_contract_id_bids(
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/contracts/{contract_id}/bids/')
 
 
@@ -740,6 +768,7 @@ def get_characters_character_id_contracts_contract_id_items(
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/contracts/{contract_id}/items/')
 
 
@@ -763,6 +792,7 @@ def get_characters_character_id_corporationhistory(*,
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/corporationhistory/')
 
 
@@ -785,6 +815,7 @@ def post_characters_character_id_cspa(*, character_id, characters, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/cspa/')
 
 
@@ -811,6 +842,7 @@ def get_characters_character_id_fatigue(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/fatigue/')
 
 
@@ -837,6 +869,7 @@ def get_characters_character_id_fittings(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/fittings/')
 
 
@@ -859,6 +892,7 @@ def post_characters_character_id_fittings(*, character_id, fitting, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/fittings/')
 
 
@@ -883,6 +917,7 @@ def delete_characters_character_id_fittings_fitting_id(*, character_id,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='DELETE',
         path=f'/characters/{character_id}/fittings/{fitting_id}/')
 
 
@@ -908,6 +943,7 @@ def get_characters_character_id_fleet(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/fleet/')
 
 
@@ -934,6 +970,7 @@ def get_characters_character_id_fw_stats(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/fw/stats/')
 
 
@@ -960,6 +997,7 @@ def get_characters_character_id_implants(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/implants/')
 
 
@@ -989,6 +1027,7 @@ def get_characters_character_id_industry_jobs(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/industry/jobs/')
 
 
@@ -1018,6 +1057,7 @@ def get_characters_character_id_killmails_recent(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/killmails/recent/')
 
 
@@ -1031,7 +1071,6 @@ def get_characters_character_id_location(*,
     :param token: Access token to use if unable to set a header
     Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable
     ---
-    Alternate route: `/dev/characters/{character_id}/location/`
     Alternate route: `/latest/characters/{character_id}/location/`
     Alternate route: `/v1/characters/{character_id}/location/`
     ---
@@ -1044,6 +1083,7 @@ def get_characters_character_id_location(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/location/')
 
 
@@ -1070,6 +1110,7 @@ def get_characters_character_id_loyalty_points(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/loyalty/points/')
 
 
@@ -1102,6 +1143,7 @@ def get_characters_character_id_mail(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/mail/')
 
 
@@ -1124,6 +1166,7 @@ def post_characters_character_id_mail(*, character_id, mail, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/mail/')
 
 
@@ -1150,6 +1193,7 @@ def get_characters_character_id_mail_labels(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/mail/labels/')
 
 
@@ -1172,6 +1216,7 @@ def post_characters_character_id_mail_labels(*, character_id, label, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/mail/labels/')
 
 
@@ -1196,6 +1241,7 @@ def delete_characters_character_id_mail_labels_label_id(
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='DELETE',
         path=f'/characters/{character_id}/mail/labels/{label_id}/')
 
 
@@ -1222,6 +1268,7 @@ def get_characters_character_id_mail_lists(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/mail/lists/')
 
 
@@ -1248,6 +1295,7 @@ def get_characters_character_id_mail_unread(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/mail/unread/')
 
 
@@ -1271,6 +1319,7 @@ def delete_characters_character_id_mail_mail_id(*, character_id, mail_id,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='DELETE',
                         path=f'/characters/{character_id}/mail/{mail_id}/')
 
 
@@ -1300,6 +1349,7 @@ def get_characters_character_id_mail_mail_id(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/mail/{mail_id}/')
 
 
@@ -1325,6 +1375,7 @@ def put_characters_character_id_mail_mail_id(*, character_id, contents,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='PUT',
                         path=f'/characters/{character_id}/mail/{mail_id}/')
 
 
@@ -1351,6 +1402,7 @@ def get_characters_character_id_medals(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/medals/')
 
 
@@ -1381,6 +1433,7 @@ def get_characters_character_id_mining(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/mining/')
 
 
@@ -1407,6 +1460,7 @@ def get_characters_character_id_notifications(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/notifications/')
 
 
@@ -1434,6 +1488,7 @@ def get_characters_character_id_notifications_contacts(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/notifications/contacts/')
 
 
@@ -1460,6 +1515,7 @@ def get_characters_character_id_online(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/online/')
 
 
@@ -1486,6 +1542,7 @@ def get_characters_character_id_opportunities(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/opportunities/')
 
 
@@ -1512,6 +1569,7 @@ def get_characters_character_id_orders(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/orders/')
 
 
@@ -1541,6 +1599,7 @@ def get_characters_character_id_orders_history(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/orders/history/')
 
 
@@ -1567,6 +1626,7 @@ def get_characters_character_id_planets(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/planets/')
 
 
@@ -1597,6 +1657,7 @@ def get_characters_character_id_planets_planet_id(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/planets/{planet_id}/')
 
 
@@ -1618,6 +1679,7 @@ def get_characters_character_id_portrait(*, character_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/portrait/')
 
 
@@ -1644,6 +1706,7 @@ def get_characters_character_id_roles(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/roles/')
 
 
@@ -1685,6 +1748,7 @@ def get_characters_character_id_search(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/search/')
 
 
@@ -1698,7 +1762,6 @@ def get_characters_character_id_ship(*,
     :param token: Access token to use if unable to set a header
     Get the current ship type, name and id
     ---
-    Alternate route: `/dev/characters/{character_id}/ship/`
     Alternate route: `/latest/characters/{character_id}/ship/`
     Alternate route: `/v1/characters/{character_id}/ship/`
     ---
@@ -1711,6 +1774,7 @@ def get_characters_character_id_ship(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/ship/')
 
 
@@ -1737,6 +1801,7 @@ def get_characters_character_id_skillqueue(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/skillqueue/')
 
 
@@ -1763,6 +1828,7 @@ def get_characters_character_id_skills(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/skills/')
 
 
@@ -1789,6 +1855,7 @@ def get_characters_character_id_standings(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/standings/')
 
 
@@ -1815,6 +1882,7 @@ def get_characters_character_id_stats(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/stats/')
 
 
@@ -1841,6 +1909,7 @@ def get_characters_character_id_titles(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/titles/')
 
 
@@ -1867,6 +1936,7 @@ def get_characters_character_id_wallet(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/wallet/')
 
 
@@ -1896,6 +1966,7 @@ def get_characters_character_id_wallet_journal(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/wallet/journal/')
 
 
@@ -1926,6 +1997,7 @@ def get_characters_character_id_wallet_transactions(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/characters/{character_id}/wallet/transactions/')
 
 
@@ -1952,6 +2024,7 @@ def get_contracts_public_bids_contract_id(*,
                         page=page,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/contracts/public/bids/{contract_id}/')
 
 
@@ -1978,6 +2051,7 @@ def get_contracts_public_items_contract_id(*,
                         page=page,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/contracts/public/items/{contract_id}/')
 
 
@@ -2001,6 +2075,7 @@ def get_contracts_public_region_id(*, region_id, if_none_match=None, page='1'):
                         region_id=region_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/contracts/public/{region_id}/')
 
 
@@ -2035,6 +2110,7 @@ def get_corporation_corporation_id_mining_extractions(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporation/{corporation_id}/mining/extractions/')
 
 
@@ -2069,6 +2145,7 @@ def get_corporation_corporation_id_mining_observers(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporation/{corporation_id}/mining/observers/')
 
 
@@ -2102,6 +2179,7 @@ def get_corporation_corporation_id_mining_observers_observer_id(
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporation/{corporation_id}/mining/observers/{observer_id}/')
 
 
@@ -2121,6 +2199,7 @@ def get_corporations_npccorps(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/npccorps/')
 
 
@@ -2142,6 +2221,7 @@ def get_corporations_corporation_id(*, corporation_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/')
 
 
@@ -2166,6 +2246,7 @@ def get_corporations_corporation_id_alliancehistory(*,
         if_none_match=if_none_match,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/alliancehistory/')
 
 
@@ -2198,6 +2279,7 @@ def get_corporations_corporation_id_assets(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/assets/')
 
 
@@ -2225,6 +2307,7 @@ def post_corporations_corporation_id_assets_locations(*, corporation_id,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='POST',
         path=f'/corporations/{corporation_id}/assets/locations/')
 
 
@@ -2251,6 +2334,7 @@ def post_corporations_corporation_id_assets_names(*, corporation_id, item_ids,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/corporations/{corporation_id}/assets/names/')
 
 
@@ -2283,6 +2367,7 @@ def get_corporations_corporation_id_blueprints(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/blueprints/')
 
 
@@ -2312,6 +2397,7 @@ def get_corporations_corporation_id_bookmarks(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/bookmarks/')
 
 
@@ -2342,6 +2428,7 @@ def get_corporations_corporation_id_bookmarks_folders(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/bookmarks/folders/')
 
 
@@ -2371,6 +2458,7 @@ def get_corporations_corporation_id_contacts(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/contacts/')
 
 
@@ -2398,6 +2486,7 @@ def get_corporations_corporation_id_contacts_labels(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/contacts/labels/')
 
 
@@ -2431,6 +2520,7 @@ def get_corporations_corporation_id_containers_logs(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/containers/logs/')
 
 
@@ -2460,6 +2550,7 @@ def get_corporations_corporation_id_contracts(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/contracts/')
 
 
@@ -2489,6 +2580,7 @@ def get_corporations_corporation_id_contracts_contract_id_bids(
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/contracts/{contract_id}/bids/')
 
 
@@ -2516,6 +2608,7 @@ def get_corporations_corporation_id_contracts_contract_id_items(
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/contracts/{contract_id}/items/')
 
 
@@ -2549,6 +2642,7 @@ def get_corporations_corporation_id_customs_offices(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/customs_offices/')
 
 
@@ -2578,6 +2672,7 @@ def get_corporations_corporation_id_divisions(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/divisions/')
 
 
@@ -2607,6 +2702,7 @@ def get_corporations_corporation_id_facilities(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/facilities/')
 
 
@@ -2633,6 +2729,7 @@ def get_corporations_corporation_id_fw_stats(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/fw/stats/')
 
 
@@ -2656,6 +2753,7 @@ def get_corporations_corporation_id_icons(*,
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/icons/')
 
 
@@ -2691,6 +2789,7 @@ def get_corporations_corporation_id_industry_jobs(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/industry/jobs/')
 
 
@@ -2724,6 +2823,7 @@ def get_corporations_corporation_id_killmails_recent(*,
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/killmails/recent/')
 
 
@@ -2753,6 +2853,7 @@ def get_corporations_corporation_id_medals(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/medals/')
 
 
@@ -2785,6 +2886,7 @@ def get_corporations_corporation_id_medals_issued(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/medals/issued/')
 
 
@@ -2811,6 +2913,7 @@ def get_corporations_corporation_id_members(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/members/')
 
 
@@ -2840,6 +2943,7 @@ def get_corporations_corporation_id_members_limit(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/members/limit/')
 
 
@@ -2869,6 +2973,7 @@ def get_corporations_corporation_id_members_titles(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/members/titles/')
 
 
@@ -2898,6 +3003,7 @@ def get_corporations_corporation_id_membertracking(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/membertracking/')
 
 
@@ -2930,6 +3036,7 @@ def get_corporations_corporation_id_orders(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/orders/')
 
 
@@ -2962,6 +3069,7 @@ def get_corporations_corporation_id_orders_history(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/orders/history/')
 
 
@@ -2988,6 +3096,7 @@ def get_corporations_corporation_id_roles(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/roles/')
 
 
@@ -3020,6 +3129,7 @@ def get_corporations_corporation_id_roles_history(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/roles/history/')
 
 
@@ -3052,6 +3162,7 @@ def get_corporations_corporation_id_shareholders(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/shareholders/')
 
 
@@ -3081,6 +3192,7 @@ def get_corporations_corporation_id_standings(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/standings/')
 
 
@@ -3113,6 +3225,7 @@ def get_corporations_corporation_id_starbases(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/starbases/')
 
 
@@ -3145,6 +3258,7 @@ def get_corporations_corporation_id_starbases_starbase_id(
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/starbases/{starbase_id}/')
 
 
@@ -3183,6 +3297,7 @@ def get_corporations_corporation_id_structures(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/structures/')
 
 
@@ -3212,6 +3327,7 @@ def get_corporations_corporation_id_titles(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/titles/')
 
 
@@ -3241,6 +3357,7 @@ def get_corporations_corporation_id_wallets(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/wallets/')
 
 
@@ -3273,6 +3390,7 @@ def get_corporations_corporation_id_wallets_division_journal(
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/wallets/{division}/journal/')
 
 
@@ -3305,6 +3423,7 @@ def get_corporations_corporation_id_wallets_division_transactions(
         token=token,
         data_source='tranquility',
         version='legacy',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/wallets/{division}/transactions/'
     )
 
@@ -3325,6 +3444,7 @@ def get_dogma_attributes(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/dogma/attributes/')
 
 
@@ -3346,6 +3466,7 @@ def get_dogma_attributes_attribute_id(*, attribute_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/dogma/attributes/{attribute_id}/')
 
 
@@ -3372,6 +3493,7 @@ def get_dogma_dynamic_items_type_id_item_id(*,
                         type_id=type_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/dogma/dynamic/items/{type_id}/{item_id}/')
 
 
@@ -3391,6 +3513,7 @@ def get_dogma_effects(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/dogma/effects/')
 
 
@@ -3412,6 +3535,7 @@ def get_dogma_effects_effect_id(*, effect_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/dogma/effects/{effect_id}/')
 
 
@@ -3435,6 +3559,7 @@ def get_fleets_fleet_id(*, fleet_id, token, if_none_match=None):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/fleets/{fleet_id}/')
 
 
@@ -3457,6 +3582,7 @@ def put_fleets_fleet_id(*, fleet_id, new_settings, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='PUT',
                         path=f'/fleets/{fleet_id}/')
 
 
@@ -3489,6 +3615,7 @@ def get_fleets_fleet_id_members(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/fleets/{fleet_id}/members/')
 
 
@@ -3511,6 +3638,7 @@ def post_fleets_fleet_id_members(*, fleet_id, invitation, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/fleets/{fleet_id}/members/')
 
 
@@ -3533,6 +3661,7 @@ def delete_fleets_fleet_id_members_member_id(*, fleet_id, member_id, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='DELETE',
                         path=f'/fleets/{fleet_id}/members/{member_id}/')
 
 
@@ -3558,6 +3687,7 @@ def put_fleets_fleet_id_members_member_id(*, fleet_id, member_id, movement,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='PUT',
                         path=f'/fleets/{fleet_id}/members/{member_id}/')
 
 
@@ -3580,6 +3710,7 @@ def delete_fleets_fleet_id_squads_squad_id(*, fleet_id, squad_id, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='DELETE',
                         path=f'/fleets/{fleet_id}/squads/{squad_id}/')
 
 
@@ -3604,6 +3735,7 @@ def put_fleets_fleet_id_squads_squad_id(*, fleet_id, naming, squad_id, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='PUT',
                         path=f'/fleets/{fleet_id}/squads/{squad_id}/')
 
 
@@ -3636,6 +3768,7 @@ def get_fleets_fleet_id_wings(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/fleets/{fleet_id}/wings/')
 
 
@@ -3656,6 +3789,7 @@ def post_fleets_fleet_id_wings(*, fleet_id, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/fleets/{fleet_id}/wings/')
 
 
@@ -3678,6 +3812,7 @@ def delete_fleets_fleet_id_wings_wing_id(*, fleet_id, token, wing_id):
                         wing_id=wing_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='DELETE',
                         path=f'/fleets/{fleet_id}/wings/{wing_id}/')
 
 
@@ -3702,6 +3837,7 @@ def put_fleets_fleet_id_wings_wing_id(*, fleet_id, naming, token, wing_id):
                         wing_id=wing_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='PUT',
                         path=f'/fleets/{fleet_id}/wings/{wing_id}/')
 
 
@@ -3724,6 +3860,7 @@ def post_fleets_fleet_id_wings_wing_id_squads(*, fleet_id, token, wing_id):
                         wing_id=wing_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/fleets/{fleet_id}/wings/{wing_id}/squads/')
 
 
@@ -3743,6 +3880,7 @@ def get_fw_leaderboards(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/fw/leaderboards/')
 
 
@@ -3762,6 +3900,7 @@ def get_fw_leaderboards_characters(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/fw/leaderboards/characters/')
 
 
@@ -3781,6 +3920,7 @@ def get_fw_leaderboards_corporations(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/fw/leaderboards/corporations/')
 
 
@@ -3800,6 +3940,7 @@ def get_fw_stats(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/fw/stats/')
 
 
@@ -3819,6 +3960,7 @@ def get_fw_systems(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/fw/systems/')
 
 
@@ -3838,6 +3980,7 @@ def get_fw_wars(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/fw/wars/')
 
 
@@ -3857,6 +4000,7 @@ def get_incursions(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/incursions/')
 
 
@@ -3876,6 +4020,7 @@ def get_industry_facilities(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/industry/facilities/')
 
 
@@ -3895,6 +4040,7 @@ def get_industry_systems(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/industry/systems/')
 
 
@@ -3921,6 +4067,7 @@ def get_insurance_prices(*,
                         language=language,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/insurance/prices/')
 
 
@@ -3947,6 +4094,7 @@ def get_killmails_killmail_id_killmail_hash(*,
                         killmail_id=killmail_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/killmails/{killmail_id}/{killmail_hash}/')
 
 
@@ -3970,6 +4118,7 @@ def get_loyalty_stores_corporation_id_offers(*,
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/loyalty/stores/{corporation_id}/offers/')
 
 
@@ -3989,6 +4138,7 @@ def get_markets_groups(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/markets/groups/')
 
 
@@ -4018,6 +4168,7 @@ def get_markets_groups_market_group_id(*,
                         market_group_id=market_group_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/markets/groups/{market_group_id}/')
 
 
@@ -4037,6 +4188,7 @@ def get_markets_prices(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/markets/prices/')
 
 
@@ -4066,6 +4218,7 @@ def get_markets_structures_structure_id(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/markets/structures/{structure_id}/')
 
 
@@ -4089,6 +4242,7 @@ def get_markets_region_id_history(*, region_id, type_id, if_none_match=None):
                         type_id=type_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/markets/{region_id}/history/')
 
 
@@ -4121,6 +4275,7 @@ def get_markets_region_id_orders(*,
                         type_id=type_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/markets/{region_id}/orders/')
 
 
@@ -4144,6 +4299,7 @@ def get_markets_region_id_types(*, region_id, if_none_match=None, page='1'):
                         region_id=region_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/markets/{region_id}/types/')
 
 
@@ -4163,6 +4319,7 @@ def get_opportunities_groups(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/opportunities/groups/')
 
 
@@ -4192,6 +4349,7 @@ def get_opportunities_groups_group_id(*,
                         language=language,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/opportunities/groups/{group_id}/')
 
 
@@ -4211,6 +4369,7 @@ def get_opportunities_tasks(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/opportunities/tasks/')
 
 
@@ -4232,6 +4391,7 @@ def get_opportunities_tasks_task_id(*, task_id, if_none_match=None):
                         task_id=task_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/opportunities/tasks/{task_id}/')
 
 
@@ -4267,6 +4427,7 @@ def get_route_origin_destination(*,
                         origin=origin,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/route/{origin}/{destination}/')
 
 
@@ -4302,6 +4463,7 @@ def get_search(*,
                         strict=strict,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/search/')
 
 
@@ -4321,6 +4483,7 @@ def get_sovereignty_campaigns(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/sovereignty/campaigns/')
 
 
@@ -4340,6 +4503,7 @@ def get_sovereignty_map(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/sovereignty/map/')
 
 
@@ -4359,6 +4523,7 @@ def get_sovereignty_structures(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/sovereignty/structures/')
 
 
@@ -4378,6 +4543,7 @@ def get_status(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/status/')
 
 
@@ -4403,6 +4569,7 @@ def post_ui_autopilot_waypoint(*, add_to_beginning, clear_other_waypoints,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/ui/autopilot/waypoint/')
 
 
@@ -4423,6 +4590,7 @@ def post_ui_openwindow_contract(*, contract_id, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/ui/openwindow/contract/')
 
 
@@ -4443,6 +4611,7 @@ def post_ui_openwindow_information(*, target_id, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/ui/openwindow/information/')
 
 
@@ -4463,6 +4632,7 @@ def post_ui_openwindow_marketdetails(*, token, type_id):
                         type_id=type_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/ui/openwindow/marketdetails/')
 
 
@@ -4483,6 +4653,7 @@ def post_ui_openwindow_newmail(*, new_mail, token):
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/ui/openwindow/newmail/')
 
 
@@ -4509,6 +4680,7 @@ def get_universe_ancestries(*,
                         language=language,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/ancestries/')
 
 
@@ -4532,6 +4704,7 @@ def get_universe_asteroid_belts_asteroid_belt_id(*,
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/asteroid_belts/{asteroid_belt_id}/')
 
 
@@ -4558,6 +4731,7 @@ def get_universe_bloodlines(*,
                         language=language,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/bloodlines/')
 
 
@@ -4577,6 +4751,7 @@ def get_universe_categories(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/categories/')
 
 
@@ -4606,6 +4781,7 @@ def get_universe_categories_category_id(*,
                         language=language,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/categories/{category_id}/')
 
 
@@ -4625,6 +4801,7 @@ def get_universe_constellations(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/constellations/')
 
 
@@ -4654,6 +4831,7 @@ def get_universe_constellations_constellation_id(*,
                         language=language,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/constellations/{constellation_id}/')
 
 
@@ -4680,6 +4858,7 @@ def get_universe_factions(*,
                         language=language,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/factions/')
 
 
@@ -4699,6 +4878,7 @@ def get_universe_graphics(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/graphics/')
 
 
@@ -4720,6 +4900,7 @@ def get_universe_graphics_graphic_id(*, graphic_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/graphics/{graphic_id}/')
 
 
@@ -4741,6 +4922,7 @@ def get_universe_groups(*, if_none_match=None, page='1'):
                         page=page,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/groups/')
 
 
@@ -4770,6 +4952,7 @@ def get_universe_groups_group_id(*,
                         language=language,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/groups/{group_id}/')
 
 
@@ -4792,6 +4975,7 @@ def post_universe_ids(*, language, names, accept_language='en-us'):
                         names=names,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/universe/ids/')
 
 
@@ -4813,6 +4997,7 @@ def get_universe_moons_moon_id(*, moon_id, if_none_match=None):
                         moon_id=moon_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/moons/{moon_id}/')
 
 
@@ -4831,6 +5016,7 @@ def post_universe_names(*, ids):
     ESI_request.request(ids=ids,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='POST',
                         path=f'/universe/names/')
 
 
@@ -4852,6 +5038,7 @@ def get_universe_planets_planet_id(*, planet_id, if_none_match=None):
                         planet_id=planet_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/planets/{planet_id}/')
 
 
@@ -4878,6 +5065,7 @@ def get_universe_races(*,
                         language=language,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/races/')
 
 
@@ -4897,6 +5085,7 @@ def get_universe_regions(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/regions/')
 
 
@@ -4926,6 +5115,7 @@ def get_universe_regions_region_id(*,
                         region_id=region_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/regions/{region_id}/')
 
 
@@ -4947,6 +5137,7 @@ def get_universe_schematics_schematic_id(*, schematic_id, if_none_match=None):
                         schematic_id=schematic_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/schematics/{schematic_id}/')
 
 
@@ -4968,6 +5159,7 @@ def get_universe_stargates_stargate_id(*, stargate_id, if_none_match=None):
                         stargate_id=stargate_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/stargates/{stargate_id}/')
 
 
@@ -4989,6 +5181,7 @@ def get_universe_stars_star_id(*, star_id, if_none_match=None):
                         star_id=star_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/stars/{star_id}/')
 
 
@@ -5010,6 +5203,7 @@ def get_universe_stations_station_id(*, station_id, if_none_match=None):
                         station_id=station_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/stations/{station_id}/')
 
 
@@ -5031,6 +5225,7 @@ def get_universe_structures(*, filter, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/structures/')
 
 
@@ -5057,6 +5252,7 @@ def get_universe_structures_structure_id(*,
                         token=token,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/structures/{structure_id}/')
 
 
@@ -5076,6 +5272,7 @@ def get_universe_system_jumps(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/system_jumps/')
 
 
@@ -5095,6 +5292,7 @@ def get_universe_system_kills(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/system_kills/')
 
 
@@ -5114,6 +5312,7 @@ def get_universe_systems(*, if_none_match=None):
     ESI_request.request(if_none_match=if_none_match,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/systems/')
 
 
@@ -5143,6 +5342,7 @@ def get_universe_systems_system_id(*,
                         system_id=system_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/systems/{system_id}/')
 
 
@@ -5164,6 +5364,7 @@ def get_universe_types(*, if_none_match=None, page='1'):
                         page=page,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/types/')
 
 
@@ -5193,6 +5394,7 @@ def get_universe_types_type_id(*,
                         type_id=type_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/universe/types/{type_id}/')
 
 
@@ -5214,6 +5416,7 @@ def get_wars(*, max_war_id, if_none_match=None):
                         max_war_id=max_war_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/wars/')
 
 
@@ -5235,6 +5438,7 @@ def get_wars_war_id(*, war_id, if_none_match=None):
                         war_id=war_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/wars/{war_id}/')
 
 
@@ -5258,4 +5462,5 @@ def get_wars_war_id_killmails(*, war_id, if_none_match=None, page='1'):
                         war_id=war_id,
                         data_source='tranquility',
                         version='legacy',
+                        HTTP_method='GET',
                         path=f'/wars/{war_id}/killmails/')

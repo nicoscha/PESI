@@ -19,6 +19,7 @@ def get_characters_character_id(*, character_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='v4',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/')
 
 
@@ -38,6 +39,7 @@ def post_characters_character_id_cspa(*, character_id, characters, token):
                         token=token,
                         data_source='tranquility',
                         version='v4',
+                        HTTP_method='POST',
                         path=f'/characters/{character_id}/cspa/')
 
 
@@ -64,6 +66,7 @@ def get_characters_character_id_notifications(*,
                         token=token,
                         data_source='tranquility',
                         version='v4',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/notifications/')
 
 
@@ -87,6 +90,7 @@ def get_characters_character_id_skills(*,
                         token=token,
                         data_source='tranquility',
                         version='v4',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/skills/')
 
 
@@ -105,6 +109,7 @@ def get_corporations_corporation_id(*, corporation_id, if_none_match=None):
                         if_none_match=if_none_match,
                         data_source='tranquility',
                         version='v4',
+                        HTTP_method='GET',
                         path=f'/corporations/{corporation_id}/')
 
 
@@ -134,6 +139,7 @@ def get_corporations_corporation_id_wallets_division_journal(
         token=token,
         data_source='tranquility',
         version='v4',
+        HTTP_method='GET',
         path=f'/corporations/{corporation_id}/wallets/{division}/journal/')
 
 
@@ -160,4 +166,5 @@ def get_universe_systems_system_id(*,
                         system_id=system_id,
                         data_source='tranquility',
                         version='v4',
+                        HTTP_method='GET',
                         path=f'/universe/systems/{system_id}/')

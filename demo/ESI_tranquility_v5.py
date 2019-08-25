@@ -24,6 +24,7 @@ def get_characters_character_id_notifications(*,
                         token=token,
                         data_source='tranquility',
                         version='v5',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/notifications/')
 
 
@@ -53,4 +54,5 @@ def get_characters_character_id_wallet_journal(*,
                         token=token,
                         data_source='tranquility',
                         version='v5',
+                        HTTP_method='GET',
                         path=f'/characters/{character_id}/wallet/journal/')
