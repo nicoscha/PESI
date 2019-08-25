@@ -69,7 +69,7 @@ def _format_code(content):
 def _write_to_file(content, ESI_swagger_version, file):
     """
     :param content: file content
-    :param ESI_info_version: EVE Swagger Interface version
+    :param ESI_swagger_version: EVE Swagger Interface version
     :param file: string of name and path
     """
     head = ('# Python EVE Swagger Interface\n'
@@ -151,13 +151,14 @@ def _create_functions(ESI_parameters, ESI_paths, data_source, version):
                     parameters.append(_filter_parameter(parameter,
                                                         as_key_word=True))
                 elif 'name' in parameter:
-                    def_parameters_list.append(_filter_parameter(parameter['name']))
+                    def_parameters_list.append(
+                        _filter_parameter(parameter['name']))
                     parameters.append(_filter_parameter(parameter['name'],
                                                         as_key_word=True))
 
-            def_parameters_list = _shuffle_kwargs_to_the_end(def_parameters_list)
-            def_parameters = _join_parameters(def_parameters_list)
-            parameters =  _join_parameters(parameters)
+            def_parameters = _join_parameters(_shuffle_kwargs_to_the_end(
+                def_parameters_list))
+            parameters = _join_parameters(parameters)
             function_name = function_dict['operationId']
 
             definition = f'def {function_name}(*, {def_parameters}):'
