@@ -20,13 +20,14 @@ def _args_to_params(kwargs):
     return params
 
 
-def request(data_source, version, HTTP_method, path, **kwargs):
+def request(data_source, version, HTTP_method, path, proxies=None, **kwargs):
     """
     Requests and processes ESI json file
     :param data_source: ['tranquility', 'singularity']
     :param version: ESI version ['dev', 'latest', 'legacy', 'v1', 'v2', ...]
     :param HTTP_method: ['GET', 'POST', 'PUT', 'DELETE', ...]
     :param path: endpoint
+    :param proxies: Dictionary mapping protocol to the URL of the proxy
     :param kwargs: parameters for the endpoint
     :return: loads: python dict, json.load(requests.get().text)
     """
@@ -34,5 +35,6 @@ def request(data_source, version, HTTP_method, path, **kwargs):
     params = _args_to_params(kwargs)
     response = requests.request(HTTP_method,
                                 f'https://esi.evetech.net/{version}{path}',
-                                headers=headers, params=params)
+                                headers=headers, params=params,
+                                proxies=proxies)
     return loads(response.text)
