@@ -6,7 +6,8 @@ def _args_to_params(kwargs):
     """
     Creates a tuple of keyword, value tuples and changes parameter names for ESI
     :param kwargs:
-    :return:
+    :return: ((parameter, value), (parameter, value), ...)
+    :rtype: tuple
     """
     params = ()
     for parameter, value in kwargs.items():
@@ -29,7 +30,8 @@ def request(data_source, version, HTTP_method, path, proxies=None, **kwargs):
     :param path: endpoint
     :param proxies: Dictionary mapping protocol to the URL of the proxy
     :param kwargs: parameters for the endpoint
-    :return: loads: python dict, json.load(requests.get().text)
+    :return: json.load(requests.get().text)
+    :rtype: dict
     """
     headers = {'accept': 'application/json'}
     params = _args_to_params(kwargs)
