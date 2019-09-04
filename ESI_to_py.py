@@ -8,7 +8,8 @@ from yapf.yapflib.yapf_api import FormatCode
 def _identifier(name):
     """
     :param name: string
-    :return: string in lower case with '_' instead of '-'
+    :return: name in lower case and with '_' instead of '-'
+    :rtype: string
     """
     if name.isidentifier():
         return name
@@ -31,7 +32,8 @@ def _convert_parameters(ESI_parameters):
 def _get_parameters_with_description(function_dict, parameters):
     """
     :param function_dict:
-    :return: full_description: string
+    :return: full_description
+    :rtype: string
     """
     full_description = ''
     for parameter in function_dict['parameters']:
@@ -60,7 +62,8 @@ def _format_code(content):
     """
     Takes a string outputs a PEP8 version of it
     :param content: string
-    :return: content: string
+    :return: content formatted according to PEP8
+    :rtype: string
     """
     content, _ = FormatCode(content, style_config='pep8')
     return content
@@ -86,7 +89,8 @@ def _create_doc_string(ESI_parameters, function_dict):
     Create a docstring for the function
     :param ESI_parameters:
     :param function_dict:
-    :return: doc_string: string
+    :return: docstring
+    :rtype: string
     """
     parameter_description = _get_parameters_with_description(function_dict,
                                                              ESI_parameters)
@@ -129,7 +133,8 @@ def _join_parameters(parameters):
     """
     Takes list of parameter and returns a string with ', ' between parameters
     :param parameters: list
-    :return: string
+    :return: parameters concatenated by a semicolon
+    :rtype: string
     """
     parameter_string = ''
     for p in parameters:
@@ -176,7 +181,8 @@ def _request_json(version):
     """
     Requests and processes ESI json file
     :param version: ESI version ['dev', 'latest', 'legacy', 'v1', 'v2', ...]
-    :return: python dict, json.load(requests.get().text)
+    :return: json.load(requests.get().text)
+    :rtype: dict
     """
     headers = {'accept': 'application/json', }
     url = f'https://esi.evetech.net/{version}/swagger.json'
@@ -186,6 +192,7 @@ def _request_json(version):
 def _get_ESI_versions():
     """
     :return: List of versions available on the server
+    :rtype: list
     """
     headers = {'accept': 'application/json'}
     params = ()
